@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sepatu_shop/misc/misc.dart';
+import 'package:sepatu_shop/screens/pages/homePages.dart';
 import 'package:sepatu_shop/screens/pages/hotList.dart';
 import 'package:sepatu_shop/screens/pages/itemList.dart';
 import 'package:sepatu_shop/screens/userInfopage.dart';
@@ -16,8 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int selectedInx = 0; //default indx
   final List<Widget> _pages = [
-    HotList(),
-    itemList(),
+    HomePages()
   ];
 
   void _onTaped(int idx) {
@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                     Icons.list_alt_rounded,
                     size: 30,
                   ),
-                  label: 'List')
+                  label: 'Categories')
             ],
             onTap: _onTaped,
           ),
