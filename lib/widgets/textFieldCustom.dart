@@ -8,7 +8,7 @@ class TextFieldCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _tfcontroller = TextEditingController();
+    final tfcontroller = TextEditingController();
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -36,10 +36,10 @@ class TextFieldCustom extends StatelessWidget {
           ),
           padding: const EdgeInsets.all(10.0),
           child: TextField(
-            controller: _tfcontroller,
+            controller: tfcontroller,
             decoration: InputDecoration(
               hintText: hint,
-              border: UnderlineInputBorder(borderSide: BorderSide.none),
+              border: const UnderlineInputBorder(borderSide: BorderSide.none),
             ),
           ),
         )

@@ -6,7 +6,6 @@ import 'package:sepatu_shop/screens/form/method/signupMethod.dart';
 import 'package:sepatu_shop/screens/theme/appTheme.dart';
 import 'package:sepatu_shop/widgets/appbarbackOnly.dart';
 import 'package:sepatu_shop/widgets/dividerCustom.dart';
-import 'package:sepatu_shop/widgets/textFieldCustom.dart';
 
 enum LoginMode { SignIn, SignUp }
 
@@ -87,8 +86,8 @@ class _LoginFormState extends State<LoginForm> {
                           Container(
                             padding: const EdgeInsets.all(30.0),
                             child: widget.loginMode == LoginMode.SignIn
-                                ? SignInMethod()
-                                : SignUpMethod(),
+                                ? const SignInMethod()
+                                :const SignUpMethod(),
                           ),
                           Container(
                             padding: const EdgeInsets.symmetric(
@@ -104,8 +103,8 @@ class _LoginFormState extends State<LoginForm> {
                             padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 30),
                             child: widget.loginMode == LoginMode.SignIn
-                                ? SigninForm()
-                                : SignUpForm(),
+                                ? const SigninForm()
+                                : const SignUpForm(),
                           ),
                         ],
                       )),

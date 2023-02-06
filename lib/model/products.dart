@@ -1,8 +1,3 @@
-import 'dart:convert';
-
-import 'package:flutter/material.dart';
-
-
 class Products {
   int? id;
   String? title;
@@ -35,7 +30,7 @@ class Products {
     data['title'] = title;
     data['price'] = price;
     data['description'] = description;
-    if (this.category != null) {
+    if (category != null) {
       data['category'] = category!.toJson();
     }
     data['images'] = images;

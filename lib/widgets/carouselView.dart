@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sepatu_shop/widgets/carouselBullet.dart';
 
 class CarouselView extends StatefulWidget {
   CarouselView({super.key, required this.listBanner, this.withBullet = true, this.isImplicit = false});
@@ -30,7 +29,6 @@ class _CarouselViewState extends State<CarouselView> {
         : [];
   }
 
-  final _pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return Stack(

@@ -3,8 +3,12 @@ import 'package:sepatu_shop/misc/misc.dart';
 import 'package:sepatu_shop/screens/theme/appTheme.dart';
 
 class tallBannerCarousel extends StatelessWidget {
-  tallBannerCarousel({super.key, required this.title, required this.price});
-  String title, price;
+  tallBannerCarousel(
+      {super.key,
+      required this.title,
+      required this.price,
+      required this.image});
+  String title, price, image;
 
   @override
   Widget build(BuildContext context) {
@@ -27,12 +31,14 @@ class tallBannerCarousel extends StatelessWidget {
           Expanded(
             flex: 3,
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Text(
-                title,
-                style: const TextStyle(color: Colors.black, fontSize: 20),
-              ),
-            ),
+                padding: const EdgeInsets.all(10.0),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: Image.network(
+                    image,
+                    fit: BoxFit.fitWidth,
+                  ),
+                )),
           ),
           Expanded(
             flex: 0,
@@ -40,6 +46,7 @@ class tallBannerCarousel extends StatelessWidget {
               title: Text(
                 title,
                 style: AppTheme().themeData().textTheme.titleMedium!,
+                overflow: TextOverflow.ellipsis,
               ),
               subtitle: Text(
                 price,

@@ -1,7 +1,5 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:sepatu_shop/misc/misc.dart';
 import 'package:sepatu_shop/widgets/landingtext.dart';
 
 class LandingPage extends StatelessWidget {
@@ -9,7 +7,7 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: double.infinity,
       width: double.infinity,
       child: Center(

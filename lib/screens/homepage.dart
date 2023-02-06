@@ -1,11 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:sepatu_shop/misc/misc.dart';
-import 'package:sepatu_shop/screens/pages/homePages.dart';
-import 'package:sepatu_shop/screens/pages/hotList.dart';
-import 'package:sepatu_shop/screens/pages/itemList.dart';
+import 'package:sepatu_shop/screens/pages/categoriesPages/categoriesItems.dart';
+import 'package:sepatu_shop/screens/pages/homeItem/homeItem.dart';
 import 'package:sepatu_shop/screens/userInfopage.dart';
 import 'package:sepatu_shop/widgets/appbarCustom.dart';
+import 'package:sepatu_shop/widgets/searchWidget/searchWidget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,16 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selectedInx = 0; //default indx
-  final List<Widget> _pages = [
-    HomePages()
-  ];
-
-  void _onTaped(int idx) {
-    setState(() {
-      selectedInx = idx;
-    });
-  }
+  int _selectedInx = 0; //default indx
+  final List<Widget> _pages = [const HomeItem(), const categoriesItems()];
 
   User getUser() {
     final currUser = FirebaseAuth.instance.currentUser!;
@@ -37,6 +29,15 @@ class _HomePageState extends State<HomePage> {
       appBar: AppbarCustom('Shop', actionList: <Widget>[
         IconButton(
           onPressed: () {
+            showSearch(
+              context: context,
+              delegate: SearchWidget(),
+            );
+          },
+          icon: const Icon(Icons.search_rounded),
+        ),
+        IconButton(
+          onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => UserInfoPage(user: getUser()),
@@ -47,7 +48,7 @@ class _HomePageState extends State<HomePage> {
         )
       ]),
       backgroundColor: pitchBlack,
-      body: _pages.elementAt(selectedInx),
+      body: _pages.elementAt(_selectedInx),
       bottomNavigationBar: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(10.0),
@@ -60,7 +61,7 @@ class _HomePageState extends State<HomePage> {
               )),
           child: BottomNavigationBar(
             elevation: 0,
-            currentIndex: selectedInx,
+            currentIndex: _selectedInx,
             selectedItemColor: Colors.black,
             unselectedItemColor: Colors.grey,
             items: const [
@@ -77,7 +78,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   label: 'Categories')
             ],
-            onTap: _onTaped,
+            onTap: (value) {
+              setState(() {
+                _selectedInx = value;
+              });
+            },
           ),
         ),
       ),

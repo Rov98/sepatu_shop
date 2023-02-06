@@ -48,7 +48,7 @@ class UserInfoPage extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Colors.white),
               ),
-              ElevatedButton(onPressed:()=> _signOut(context), child: Text('Sign out'))
+              ElevatedButton(onPressed:()=> _signOut(context), child: const Text('Sign out'))
             ],
           ),
         ),

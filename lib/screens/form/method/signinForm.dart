@@ -13,7 +13,7 @@ class SigninForm extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         TextFieldCustom(title: 'Email*'),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         TextFieldCustom(title: 'Password*', hint: 'Min. 8 Characters'),

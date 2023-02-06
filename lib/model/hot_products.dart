@@ -2,7 +2,6 @@
 //
 //     final hotProducts = hotProductsFromJson(jsonString);
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 List<HotProducts?>? hotProductsFromJson(String str) => json.decode(str) == null ? [] : List<HotProducts?>.from(json.decode(str)!.map((x) => HotProducts.fromJson(x)));
